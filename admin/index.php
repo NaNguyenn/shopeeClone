@@ -11,9 +11,11 @@
     require 'connect.php';
     $sql = "select * from suppliers";
     $suppliers = mysqli_query($connect,$sql);
-    $sql = "select * from products";
+    $sql = "select products.*, suppliers.name as supplierName
+    from products join suppliers on
+    suppliers.id = products.supplierId";
     $products = mysqli_query($connect,$sql);
-    ?>
+?>
     Admin interface
     <?php
         include 'menu.php';
@@ -41,10 +43,11 @@
                     <b><?php echo $product['name'] ?></b>
                     <?php echo $product['type'] ?>
                     <?php echo $product['price'] ?>
+                    <?php echo $product['supplierName'] ?>
                     <a href="productUpdate.php?id=<?php echo $product['id'] ?>">Update</a>
                     <a href="productDelete.php?id=<?php echo $product['id'] ?>">Delete</a>
                 </div>
-        <?php } ?>
+            <?php } ?>
     </div>
 
 </body>
