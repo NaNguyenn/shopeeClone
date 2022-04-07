@@ -5,6 +5,7 @@ if(empty($_POST['productName']) ||
     empty($_POST['productPrice']) ||
     empty($_POST['supplierId'])){
     header('location:productCreate.php');
+    exit;
 }
 else{
     $id = $_POST['productId'];

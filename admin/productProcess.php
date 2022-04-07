@@ -6,6 +6,7 @@ if(empty($_POST['productName']) ||
     empty($_FILES['productImage']) ||
     empty($_POST['supplierId'])){
     header('location:productCreate.php');
+    exit;
 }
 else{
     $name = $_POST['productName'];

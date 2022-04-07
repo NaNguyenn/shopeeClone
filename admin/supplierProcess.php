@@ -2,6 +2,7 @@
 
 if(empty($_POST['supplierName']) || empty($_POST['supplierDescription'])){
     header('location:supplierCreate.php');
+    exit;
 }
 else{
     $name = $_POST['supplierName'];
